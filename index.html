@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="recipeApp" ng-controller="recipeCtrl">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="includes/scripts.js"></script>
+    <link type="text/css" rel="stylesheet" href="includes/style.css" />
 </head>
 
-<body ng-app="recipeApp" ng-controller="recipeCtrl">
+<body class="dark">
     <div class="recipesBox">
         <ul id="recipeList">
             <li ng-repeat="recipe in recipes" id="recipe-{{ recipe.Name }}">

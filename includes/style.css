@@ -1,0 +1,72 @@
+/* .default {
+    --color-background;
+    --color-text;
+    --color-medium;
+    --color-background-emphasis;
+    --color-text-emphasis;
+} */
+
+.fire {
+    --color-text-emphasis: #F1E8B8;
+    --color-text: #F9E784;
+    --color-medium: #9E684D;
+    --color-background: #490808;
+    --color-background-emphasis: #191919;
+}
+
+.water {
+    --color-text-emphasis: #7BC4C9;
+    --color-text: #E0E0E2;
+    --color-medium: #B5BAD0;
+    --color-background: #5473A8;
+    --color-background-emphasis: #416788;
+}
+
+.earth {
+    --color-text-emphasis: #69BE67;
+    --color-text: #E5F780;
+    --color-medium: #DB9130;
+    --color-background: #1B3A1C;
+    --color-background-emphasis: #0C0D0C;
+}
+
+.air {
+    --color-text-emphasis: #0D1136;
+    --color-text: #0E1F1C;
+    --color-medium: #DE9B49;
+    --color-background: #F4F5FB;
+    --color-background-emphasis: #ACBED8;
+}
+
+.magic {
+    --color-text-emphasis: #52528C;
+    --color-text: #7C9EB2;
+    --color-medium: #372554;
+    --color-background: #231123;
+    --color-background-emphasis: #000000;
+}
+
+.light {
+    --color-text-emphasis: #888888;
+    --color-text: #333333;
+    --color-medium: #A6A2A6;
+    --color-background: #FFFFFF;
+    --color-background-emphasis: #D2CBD3;
+}
+
+.dark {
+    --color-text-emphasis: #A4B9D4;
+    --color-text: #726F97;
+    --color-medium: #161A23;
+    --color-background: #06080C;
+    --color-background-emphasis: #000000;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--color-text-emphasis);
+}
