@@ -7,10 +7,46 @@
 </head>
 
 <body ng-app="recipeApp" ng-controller="recipeCtrl">
-    <div>
-        <p>Name : <input type="text" ng-model="name"></p>
-        <ul>
-            <li ng-repeat="person in names | lnameFilter:this track by $index">{{ person.last }}, {{ person.first }}</li>
+    <div class="recipesBox">
+        <ul id="recipeList">
+            <li ng-repeat="recipe in recipes" id="recipe-{{ recipe.Name }}">
+                <h2 class="recipeName">{{ recipe.Name }}</h2>
+
+                <div class="description">{{ recipe.Description }}</div>
+
+                <h3 class="tagsHeader">Tags</h3>
+                <ul class="tagsList">
+                    <li ng-repeat="tag in recipe.Tags">
+                        {{ tag }}
+                    </li>
+                </ul>
+
+                <h3 class="ingredientsHeader">Ingredients</h3>
+                <ul class="ingredientsList">
+                    <li ng-repeat="ingredient in recipe.Ingredients">
+                        {{ ingredient }}
+                    </li>
+                </ul>
+
+                <h3 class="prepHeader">Preparation</h3>
+                <ul class="prepList">
+                    <li ng-repeat="prep in recipe.Prep">
+                        {{ prep }}
+                    </li>
+                </ul>
+
+                <h3 class="stepsHeader">Steps</h3>
+                <ul class="stepsList">
+                    <li ng-repeat="step in recipe.Step">
+                        {{ step }}
+                    </li>
+                </ul>
+
+                <h3 class="notesHeader">Notes</h3>
+                <div class="notes">
+                    {{ recipe.Notes }}
+                </div>
+            </li>
         </ul>
     </div>
 </body>
