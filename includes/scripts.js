@@ -1,3 +1,5 @@
+const STORED_THEME = 'recipesTheme';
+
 var app = angular.module('recipeApp', []);
 
 class Recipe {
@@ -20,5 +22,22 @@ app.controller('recipeCtrl', function ($scope) {
         new Recipe("Buffalo Chicken Mac & Cheese", "From the kitchen of Jessica Ketchum", ["Chicken", "Pasta"], ["Annie's Cheddar Mac & Cheese", "Tyson Buffalo Chicken Tenders"], ["Preheat oven to 400F"], ["Bake chicken tenders for 15-20 minutes", "Follow directions on Mac & Cheese box", "Slice chicken", "Stir chicken into mac & cheese"], "Best served warm!")
     ];
 
-    $scope.currentTheme = $scope.themes[0];
+    $scope.storeTheme = function (newTheme) {
+        localStorage.setItem(STORED_THEME, newTheme);
+    }
+
+    function init() {
+        $scope.currentTheme = $scope.themes[0];
+
+        // localStorage stuff
+        var storedTheme = localStorage.getItem(STORED_THEME);
+        if (storedTheme === undefined) {
+            storeTheme($scope.currentTheme);
+        }
+        else {
+            $scope.currentTheme = storedTheme;
+        }
+    }
+
+    init();
 });

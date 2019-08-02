@@ -9,7 +9,7 @@
 
 <body class="{{currentTheme}}">
     <div class="themesBox">
-        <select ng-model="currentTheme" ng-options="t for t in themes"></select>
+        <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)" ng-options="t for t in themes"></select>
     </div>
     <div class="recipesBox">
         <ul id="recipeList">
