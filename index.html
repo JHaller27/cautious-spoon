@@ -1,1 +1,17 @@
-<meta http-equiv="Refresh" content="0; url=https://xkcd.com" />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="includes/scripts.js"></script>
+</head>
+
+<body ng-app="recipeApp" ng-controller="recipeCtrl">
+    <div>
+        <p>Name : <input type="text" ng-model="name"></p>
+        <ul>
+            <li ng-repeat="person in names | lnameFilter:this track by $index">{{ person.last }}, {{ person.first }}</li>
+        </ul>
+    </div>
+</body>
+</html>
