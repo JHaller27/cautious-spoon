@@ -9,12 +9,13 @@
 </head>
 
 <body class="{{currentTheme}}">
-    <div class="themesBox">
-        <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)" ng-options="t for t in themes"></select>
-    </div>
     <div class="contentBox">
         <div class="controlsBox">
             <h2>Controls</h2>
+            <div class="themesBox">
+                <span class="themesLabel">Theme</span>
+                <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)" ng-options="t for t in themes"></select>
+            </div>
         </div>
         <div class="recipesBox">
             <ul id="recipeList">

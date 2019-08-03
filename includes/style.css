@@ -77,6 +77,10 @@ h3, h4, h5 {
     margin-bottom: 5px;
 }
 
+.themesBox .themesLabel {
+    color: var(--color-text-emphasis);
+}
+
 select, select > * {
     background-color: var(--color-medium);
     color: var(--color-text);
