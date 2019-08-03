@@ -77,8 +77,36 @@ h3, h4, h5 {
     margin-bottom: 5px;
 }
 
+.contentBox {
+    display: flex;
+    flex-flow: row nowrap;
+
+    padding-bottom: 10px;
+}
+
+.controlsBox {
+    padding: 10px;
+    background-color: var(--color-medium);
+}
+
 .controlsBox label {
     color: var(--color-text-emphasis);
+}
+
+.controlsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.controlsList li {
+    background-color: var(--color-background-emphasis);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.recipesBox {
+    width: 100%;
 }
 
 select, select > * {
@@ -110,34 +138,6 @@ ul#recipeList > li {
     background-color: var(--color-background-emphasis);
 
     flex: 1 0 0;
-}
-
-.contentBox {
-    display: flex;
-    flex-flow: row nowrap;
-
-    padding-bottom: 10px;
-}
-
-.controlsBox {
-    padding: 10px;
-    background-color: var(--color-medium);
-}
-
-.controlsList {
-    list-style-type: none;
-    padding: 0;
-}
-
-.controlsList li {
-    background-color: var(--color-background-emphasis);
-    padding: 5px;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.recipesBox {
-    width: 100%;
 }
 
 ul.tagsList {
