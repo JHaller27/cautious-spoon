@@ -1,11 +1,3 @@
-/* .default {
-    --color-background;
-    --color-text;
-    --color-medium;
-    --color-background-emphasis;
-    --color-text-emphasis;
-} */
-
 .fire {
     --color-text-emphasis: #F1E8B8;
     --color-text: #F9E784;
