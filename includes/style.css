@@ -70,3 +70,10 @@ body {
 h1, h2, h3, h4, h5 {
     color: var(--color-text-emphasis);
 }
+
+select, select > * {
+    background-color: var(--color-medium);
+    color: var(--color-text);
+    border: none;
+    border-radius: 10px;
+}
