@@ -116,7 +116,6 @@ ul#recipeList > li {
     display: flex;
     flex-flow: row nowrap;
 
-    padding-top: 10px;
     padding-bottom: 10px;
 }
 
