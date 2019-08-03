@@ -39,11 +39,11 @@
 }
 
 .magic {
-    --color-text-emphasis: #52528C;
-    --color-text: #7C9EB2;
-    --color-medium: #372554;
-    --color-background: #231123;
-    --color-background-emphasis: #000000;
+    --color-text: #D3FFF3;
+    --color-text-emphasis: #91B3F1;
+    --color-medium: #3C7CF2;
+    --color-background: #2D2D2D;
+    --color-background-emphasis: #9649CB;
 }
 
 .light {
