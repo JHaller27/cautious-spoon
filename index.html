@@ -20,7 +20,22 @@
                 </li>
 
                 <li class="searchByName">
-                    <label for="searchByName">Name contains</label><input id="searchByName" type="text" ng-model="filters.Name">
+                    <label for="searchByName">Name contains</label>
+                    <input id="searchByName" type="text" ng-model="filters.Name">
+                </li>
+
+                <li class="searchByTags">
+                    <label>Tags</label>
+                    <ul class="tagCategoryList">
+                        <li ng-repeat="category in getTags().Categories" class="tagCategory" id="tagCategory-{{ category }}">
+                            <b>{{category}}</b>
+                            <ul class="tagList" id="tagList-{{category}}">
+                                <li ng-repeat="tag in getTags()[category]" class="tagFilter" id="tag-{{tag}}">
+                                    {{tag}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

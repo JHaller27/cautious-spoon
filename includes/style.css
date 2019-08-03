@@ -93,7 +93,7 @@ h3, h4, h5 {
     background-color: var(--color-medium);
 }
 
-.controlsBox label {
+.controlsBox label, .controlsBox .label {
     color: var(--color-text-emphasis);
 }
 
@@ -107,6 +107,11 @@ h3, h4, h5 {
     padding: 5px;
     border-radius: 5px;
     margin: 5px;
+}
+
+.searchByTags ul {
+    list-style-type: none;
+    padding: 0;
 }
 
 .recipesBox {
