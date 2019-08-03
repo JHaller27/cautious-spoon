@@ -30,8 +30,9 @@
                         <li ng-repeat="category in getTags().Categories" class="tagCategory" id="tagCategory-{{ category }}">
                             <b>{{category}}</b>
                             <ul class="tagList" id="tagList-{{category}}">
-                                <li ng-repeat="tag in getTags()[category]" class="tagFilter" id="tag-{{tag}}">
-                                    {{tag}}
+                                <li ng-repeat="tag in getTags()[category]" class="tagFilter" id="tag-{{category}}-{{tag}}">
+                                    <input type="checkbox" ng-model="filters.Tag" id="checkbox-{{category}}-{{tag}}" />
+                                    <label class="checkboxLabel" for="checkbox-{{category}}-{{tag}}" ng-click="toggleTag(category, tag)">{{tag}}</label>
                                 </li>
                             </ul>
                         </li>

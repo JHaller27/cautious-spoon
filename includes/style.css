@@ -114,6 +114,10 @@ h3, h4, h5 {
     padding: 0;
 }
 
+.checkboxLabel {
+    color: var(--color-text) !important;
+}
+
 .recipesBox {
     flex: 5 0 0;
     width: 100%;
