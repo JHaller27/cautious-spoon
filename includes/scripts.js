@@ -58,6 +58,18 @@ app.controller('recipeCtrl', function ($scope) {
     init();
 });
 
+// Determine if an individual recipe should be displayed
+// :param recipe: A Recipe object
+// :param filters: An object whose elements are filter data
+// :return: true if this Recipe should be displayed, false otherwise
+function displayRecipe(recipe, filters) {
+    if (strContains(recipe.Name, filters.Name)) {
+        return true;
+    }
+
+    return false;
+}
+
 app.filter('recipeFilters', function() {
     return function(allRecipes, filters) {
         if (filters === undefined) {
@@ -66,7 +78,7 @@ app.filter('recipeFilters', function() {
         else {
             var result = [];
             allRecipes.forEach(recipe => {
-                if (strContains(recipe.Name, filters.Name)) {
+                if (displayRecipe(recipe, filters)) {
                     result.push(recipe);
                 }
             });
