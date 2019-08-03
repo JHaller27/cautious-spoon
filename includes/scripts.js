@@ -15,7 +15,7 @@ class Recipe {
 }
 
 app.controller('recipeCtrl', function ($scope) {
-    $scope.themes = ['water', 'earth', 'fire', 'air', 'magic', 'light', 'dark'];
+    $scope.themes = ['light', 'dark', 'water', 'earth', 'fire', 'air', 'magic'];
     $scope.recipes = [
         new Recipe("Milk in a cup", "", ["Easy", "Vegetarian"], ["Milk"], [], ["Pour milk into cup"], "Cold milk is best!"),
         new Recipe("Chicken Nuggets", "The cheap and dirty way", ["Chicken", "Easy"], ["Tyson's Fun Nuggets"], [], ["Place 5 chicken nuggets on a plate", "Cook for 1:30", "(Optional) serve with Kraft Chipotle Aioli sauce", "Enjoy!"], ""),
@@ -27,12 +27,11 @@ app.controller('recipeCtrl', function ($scope) {
     }
 
     function init() {
-        $scope.currentTheme = $scope.themes[0];
-
         // localStorage stuff
         var storedTheme = localStorage.getItem(STORED_THEME);
-        if (storedTheme === undefined) {
-            storeTheme($scope.currentTheme);
+        if (storedTheme === null) {
+            $scope.currentTheme = $scope.themes[0];
+            $scope.storeTheme($scope.currentTheme);
         }
         else {
             $scope.currentTheme = storedTheme;

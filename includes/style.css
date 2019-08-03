@@ -31,11 +31,11 @@
 }
 
 .air {
-    --color-text-emphasis: #0D1136;
-    --color-text: #0E1F1C;
-    --color-medium: #DE9B49;
-    --color-background: #F4F5FB;
-    --color-background-emphasis: #ACBED8;
+    --color-text-emphasis: #6C93CE;
+    --color-text: #1C51A0;
+    --color-medium: #88BBD6;
+    --color-background: #E9E9E9;
+    --color-background-emphasis: #CDCDCD;
 }
 
 .magic {
@@ -56,8 +56,8 @@
 
 .dark {
     --color-text-emphasis: #A4B9D4;
-    --color-text: #726F97;
-    --color-medium: #161A23;
+    --color-text: #A5A3BC;
+    --color-medium: #40434B;
     --color-background: #06080C;
     --color-background-emphasis: #000000;
 }
