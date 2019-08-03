@@ -16,10 +16,14 @@
                 <span class="themesLabel">Theme</span>
                 <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)" ng-options="t for t in themes"></select>
             </div>
+
+            <div class="searchByName">
+                <input type="text" ng-model="filters.Name">
+            </div>
         </div>
         <div class="recipesBox">
             <ul id="recipeList">
-                <li ng-repeat="recipe in recipes" id="recipe-{{ recipe.Name }}">
+                <li ng-repeat="recipe in recipes | recipeFilters:filters track by $index" id="recipe-{{ recipe.Name }}">
                     <h2 class="recipeName" ng-click="recipe.Show = !recipe.Show">{{ recipe.Name }}</h2>
 
                     <div class="description">{{ recipe.Description }}</div>

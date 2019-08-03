@@ -15,6 +15,22 @@ class Recipe {
     }
 }
 
+function strContains(superstring, substring, caseSensitive=false) {
+    if (substring === '') {
+        return true;
+    }
+    if (superstring === '') {
+        return false;
+    }
+
+    if (caseSensitive) {
+        return superstring.indexOf(substring) >= 0;
+    }
+    else {
+        return superstring.toLowerCase().indexOf(substring.toLowerCase()) >= 0;
+    }
+}
+
 app.controller('recipeCtrl', function ($scope) {
     $scope.themes = ['light', 'dark', 'water', 'earth', 'fire', 'air', 'magic'];
     $scope.recipes = [
@@ -40,4 +56,21 @@ app.controller('recipeCtrl', function ($scope) {
     }
 
     init();
+});
+
+app.filter('recipeFilters', function() {
+    return function(allRecipes, filters) {
+        if (filters === undefined) {
+            return allRecipes;
+        }
+        else {
+            var result = [];
+            allRecipes.forEach(recipe => {
+                if (strContains(recipe.Name, filters.Name)) {
+                    result.push(recipe);
+                }
+            });
+            return result;
+        }
+    }
 });
