@@ -57,6 +57,7 @@
 body {
     background-color: var(--color-background);
     color: var(--color-text);
+    font-family: "Trebuchet MS";
 }
 
 h1, h2, h3, h4, h5 {
