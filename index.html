@@ -11,47 +11,52 @@
     <div class="themesBox">
         <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)" ng-options="t for t in themes"></select>
     </div>
-    <div class="recipesBox">
-        <ul id="recipeList">
-            <li ng-repeat="recipe in recipes" id="recipe-{{ recipe.Name }}">
-                <h2 class="recipeName">{{ recipe.Name }}</h2>
+    <div class="contentBox">
+        <div class="controlsBox">
+            <h2>Controls</h2>
+        </div>
+        <div class="recipesBox">
+            <ul id="recipeList">
+                <li ng-repeat="recipe in recipes" id="recipe-{{ recipe.Name }}">
+                    <h2 class="recipeName">{{ recipe.Name }}</h2>
 
-                <div class="description">{{ recipe.Description }}</div>
+                    <div class="description">{{ recipe.Description }}</div>
 
-                <h3 class="tagsHeader">Tags</h3>
-                <ul class="tagsList">
-                    <li ng-repeat="tag in recipe.Tags">
-                        {{ tag }}
-                    </li>
-                </ul>
+                    <h3 class="tagsHeader">Tags</h3>
+                    <ul class="tagsList">
+                        <li ng-repeat="tag in recipe.Tags">
+                            {{ tag }}
+                        </li>
+                    </ul>
 
-                <h3 class="ingredientsHeader">Ingredients</h3>
-                <ul class="ingredientsList">
-                    <li ng-repeat="ingredient in recipe.Ingredients">
-                        {{ ingredient }}
-                    </li>
-                </ul>
+                    <h3 class="ingredientsHeader">Ingredients</h3>
+                    <ul class="ingredientsList">
+                        <li ng-repeat="ingredient in recipe.Ingredients">
+                            {{ ingredient }}
+                        </li>
+                    </ul>
 
-                <h3 class="prepHeader">Preparation</h3>
-                <ul class="prepList">
-                    <li ng-repeat="prep in recipe.Prep">
-                        {{ prep }}
-                    </li>
-                </ul>
+                    <h3 class="prepHeader">Preparation</h3>
+                    <ul class="prepList">
+                        <li ng-repeat="prep in recipe.Prep">
+                            {{ prep }}
+                        </li>
+                    </ul>
 
-                <h3 class="stepsHeader">Steps</h3>
-                <ol class="stepsList">
-                    <li ng-repeat="step in recipe.Steps">
-                        {{ step }}
-                    </li>
-                </ol>
+                    <h3 class="stepsHeader">Steps</h3>
+                    <ol class="stepsList">
+                        <li ng-repeat="step in recipe.Steps">
+                            {{ step }}
+                        </li>
+                    </ol>
 
-                <h3 class="notesHeader">Notes</h3>
-                <div class="notes">
-                    {{ recipe.Notes }}
-                </div>
-            </li>
-        </ul>
+                    <h3 class="notesHeader">Notes</h3>
+                    <div class="notes">
+                        {{ recipe.Notes }}
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
