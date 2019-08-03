@@ -72,6 +72,11 @@ h1, h2, h3, h4, h5 {
     color: var(--color-text-emphasis);
 }
 
+h3, h4, h5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 select, select > * {
     background-color: var(--color-medium);
     color: var(--color-text);
