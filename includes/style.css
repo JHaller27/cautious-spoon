@@ -120,6 +120,20 @@ ul#recipeList > li {
     width: 100%;
 }
 
+ul.tagsList {
+    padding: 0;
+    display: flex;
+}
+
+ul.tagsList > li {
+    background-color: var(--color-medium);
+    margin: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 750px) {
     ul#recipeList {
         flex-flow: column nowrap;
