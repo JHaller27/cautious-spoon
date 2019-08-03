@@ -14,8 +14,8 @@
             <h2>Controls</h2>
             <ul class="controlsList">
                 <li class="themesBox">
-                    <span class="themesLabel">Theme</span>
-                    <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)"
+                    <label for="themeSelector">Theme</label>
+                    <select id="themeSelector" ng-model="currentTheme" ng-change="storeTheme(currentTheme)"
                         ng-options="t for t in themes"></select>
                 </li>
 
