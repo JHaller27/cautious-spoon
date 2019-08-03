@@ -81,10 +81,14 @@ h3, h4, h5 {
     display: flex;
     flex-flow: row nowrap;
 
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
     padding-bottom: 10px;
 }
 
 .controlsBox {
+    flex: 1 0 0;
     padding: 10px;
     background-color: var(--color-medium);
 }
@@ -106,6 +110,7 @@ h3, h4, h5 {
 }
 
 .recipesBox {
+    flex: 5 0 0;
     width: 100%;
 }
 
@@ -154,12 +159,13 @@ ul.tagsList > li {
     border-radius: 10px;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1000px) {
     ul#recipeList {
         flex-flow: column nowrap;
     }
 
     .contentBox {
         flex-direction: column;
+        min-width: 100%;
     }
 }
