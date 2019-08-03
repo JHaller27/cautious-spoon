@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html ng-app="recipeApp" ng-controller="recipeCtrl">
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="includes/scripts.js"></script>
@@ -18,7 +19,7 @@
         <div class="recipesBox">
             <ul id="recipeList">
                 <li ng-repeat="recipe in recipes" id="recipe-{{ recipe.Name }}">
-                    <h2 class="recipeName">{{ recipe.Name }}</h2>
+                    <h2 class="recipeName" ng-click="recipe.Show = !recipe.Show">{{ recipe.Name }}</h2>
 
                     <div class="description">{{ recipe.Description }}</div>
 
@@ -29,34 +30,37 @@
                         </li>
                     </ul>
 
-                    <h3 class="ingredientsHeader">Ingredients</h3>
-                    <ul class="ingredientsList">
-                        <li ng-repeat="ingredient in recipe.Ingredients">
-                            {{ ingredient }}
-                        </li>
-                    </ul>
+                    <div class="recipeDetails" id="recipeDetails-{{ recipe.Name }}" ng-show="recipe.Show">
+                        <h3 class="ingredientsHeader">Ingredients</h3>
+                        <ul class="ingredientsList">
+                            <li ng-repeat="ingredient in recipe.Ingredients">
+                                {{ ingredient }}
+                            </li>
+                        </ul>
 
-                    <h3 class="prepHeader">Preparation</h3>
-                    <ul class="prepList">
-                        <li ng-repeat="prep in recipe.Prep">
-                            {{ prep }}
-                        </li>
-                    </ul>
+                        <h3 class="prepHeader">Preparation</h3>
+                        <ul class="prepList">
+                            <li ng-repeat="prep in recipe.Prep">
+                                {{ prep }}
+                            </li>
+                        </ul>
 
-                    <h3 class="stepsHeader">Steps</h3>
-                    <ol class="stepsList">
-                        <li ng-repeat="step in recipe.Steps">
-                            {{ step }}
-                        </li>
-                    </ol>
+                        <h3 class="stepsHeader">Steps</h3>
+                        <ol class="stepsList">
+                            <li ng-repeat="step in recipe.Steps">
+                                {{ step }}
+                            </li>
+                        </ol>
 
-                    <h3 class="notesHeader">Notes</h3>
-                    <div class="notes">
-                        {{ recipe.Notes }}
+                        <h3 class="notesHeader">Notes</h3>
+                        <div class="notes">
+                            {{ recipe.Notes }}
+                        </div>
                     </div>
                 </li>
             </ul>
         </div>
     </div>
 </body>
+
 </html>

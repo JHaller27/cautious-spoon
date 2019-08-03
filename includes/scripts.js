@@ -11,6 +11,7 @@ class Recipe {
         this.Prep = prep;
         this.Steps = steps;
         this.Notes = notes;
+        this.Show = false;
     }
 }
 
