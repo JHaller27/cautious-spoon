@@ -12,14 +12,17 @@
     <div class="contentBox">
         <div class="controlsBox">
             <h2>Controls</h2>
-            <div class="themesBox">
-                <span class="themesLabel">Theme</span>
-                <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)" ng-options="t for t in themes"></select>
-            </div>
+            <ul class="controlsList">
+                <li class="themesBox">
+                    <span class="themesLabel">Theme</span>
+                    <select ng-model="currentTheme" ng-change="storeTheme(currentTheme)"
+                        ng-options="t for t in themes"></select>
+                </li>
 
-            <div class="searchByName">
-                <input type="text" ng-model="filters.Name">
-            </div>
+                <li class="searchByName">
+                    <label for="searchByName">Name contains</label><input id="searchByName" type="text" ng-model="filters.Name">
+                </li>
+            </ul>
         </div>
         <div class="recipesBox">
             <ul id="recipeList">
