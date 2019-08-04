@@ -75,8 +75,6 @@ app.controller('recipeCtrl', function ($scope) {
                     }
                 });
             });
-
-            console.log($scope._cachedTags);
         }
 
         return $scope._cachedTags;
@@ -92,6 +90,9 @@ app.controller('recipeCtrl', function ($scope) {
         else {
             $scope.currentTheme = storedTheme;
         }
+
+        // other default values
+        $scope.showControls = false;
     }
 
     init();

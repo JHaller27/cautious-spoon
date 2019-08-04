@@ -11,34 +11,40 @@
 <body class="{{currentTheme}}">
     <div class="contentBox">
         <div class="controlsBox">
-            <h2>Controls</h2>
-            <ul class="controlsList">
-                <li class="themesBox">
-                    <label for="themeSelector">Theme</label>
-                    <select id="themeSelector" ng-model="currentTheme" ng-change="storeTheme(currentTheme)"
-                        ng-options="t for t in themes"></select>
-                </li>
+            <h2 ng-click="showControls = !showControls">Controls</h2>
+            <div ng-show="showControls">
+                <ul class="controlsList">
+                    <li class="themesBox">
+                        <label for="themeSelector">Theme</label>
+                        <select id="themeSelector" ng-model="currentTheme" ng-change="storeTheme(currentTheme)"
+                            ng-options="t for t in themes"></select>
+                    </li>
 
-                <li class="searchByName">
-                    <label for="searchByName">Name contains</label>
-                    <input id="searchByName" type="text" ng-model="filters.Name">
-                </li>
+                    <li class="searchByName">
+                        <label for="searchByName">Name contains</label>
+                        <input id="searchByName" type="text" ng-model="filters.Name">
+                    </li>
 
-                <li class="searchByTags">
-                    <label>Tags</label>
-                    <ul class="tagCategoryList">
-                        <li ng-repeat="category in getTags().Categories" class="tagCategory" id="tagCategory-{{ category }}">
-                            <b>{{category}}</b>
-                            <ul class="tagList" id="tagList-{{category}}">
-                                <li ng-repeat="tag in getTags()[category]" class="tagFilter" id="tag-{{category}}-{{tag}}">
-                                    <input type="checkbox" ng-model="filters.Tag" id="checkbox-{{category}}-{{tag}}" />
-                                    <label class="checkboxLabel" for="checkbox-{{category}}-{{tag}}" ng-click="toggleTag(category, tag)">{{tag}}</label>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                    <li class="searchByTags">
+                        <label>Tags</label>
+                        <ul class="tagCategoryList">
+                            <li ng-repeat="category in getTags().Categories" class="tagCategory"
+                                id="tagCategory-{{ category }}">
+                                <b>{{category}}</b>
+                                <ul class="tagList" id="tagList-{{category}}">
+                                    <li ng-repeat="tag in getTags()[category]" class="tagFilter"
+                                        id="tag-{{category}}-{{tag}}">
+                                        <input type="checkbox" ng-model="filters.Tag"
+                                            id="checkbox-{{category}}-{{tag}}" />
+                                        <label class="checkboxLabel" for="checkbox-{{category}}-{{tag}}"
+                                            ng-click="toggleTag(category, tag)">{{tag}}</label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="recipesBox">
             <ul id="recipeList">

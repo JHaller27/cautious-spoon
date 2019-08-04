@@ -177,4 +177,8 @@ ul.tagsList > li {
         flex-direction: column;
         min-width: 100%;
     }
+
+    .controlsBox {
+        flex: 0 1 0;
+    }
 }
