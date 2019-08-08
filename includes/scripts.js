@@ -15,6 +15,13 @@ class Recipe {
     }
 }
 
+const STATIC_RECIPES = [
+    new Recipe("Milk in a cup", "", ["Difficulty:Easy", "Meat:None"], ["Milk"], [], ["Pour milk into cup"], "Cold milk is best!"),
+    new Recipe("Chicken Nuggets", "The cheap and dirty way", ["Meat:Chicken", "Difficulty:Easy"], ["Tyson's Fun Nuggets"], [], ["Place 5 chicken nuggets on a plate", "Cook for 1:30", "(Optional) serve with Kraft Chipotle Aioli sauce", "Enjoy!"], ""),
+    new Recipe("Buffalo Chicken Mac & Cheese", "From the kitchen of Jessica Ketchum", ["Meat:Chicken", "Pasta"], ["Annie's Cheddar Mac & Cheese", "Tyson Buffalo Chicken Tenders"], ["Preheat oven to 400F"], ["Bake chicken tenders for 15-20 minutes", "Follow directions on Mac & Cheese box", "Slice chicken", "Stir chicken into mac & cheese"], "Best served warm!"),
+    new Recipe("Cheese Burgers", "Classic American", ["Meat:Beef", "Grill"], ["Burger buns", "Ground beef (patties)", "Condiments"], ["Light the grill OR Pre-heat stove"], ["Place patties on grill/stove", "Wait until browned", "Flip", "Wait until browned on both sides", "Place sliced cheese on patties", "Cook for no longer than 1 more minute"], "Easiest on grill")
+];
+
 function strContains(superstring, substring, caseSensitive = false) {
     if (substring === '') {
         return true;
@@ -31,17 +38,24 @@ function strContains(superstring, substring, caseSensitive = false) {
     }
 }
 
+function retreiveRecipes () {
+    return STATIC_RECIPES;
+}
+
 app.controller('recipeCtrl', function ($scope) {
     $scope.themes = ['light', 'dark', 'water', 'earth', 'fire', 'air', 'magic'];
-    $scope.recipes = [
-        new Recipe("Milk in a cup", "", ["Difficulty:Easy", "Meat:None"], ["Milk"], [], ["Pour milk into cup"], "Cold milk is best!"),
-        new Recipe("Chicken Nuggets", "The cheap and dirty way", ["Meat:Chicken", "Difficulty:Easy"], ["Tyson's Fun Nuggets"], [], ["Place 5 chicken nuggets on a plate", "Cook for 1:30", "(Optional) serve with Kraft Chipotle Aioli sauce", "Enjoy!"], ""),
-        new Recipe("Buffalo Chicken Mac & Cheese", "From the kitchen of Jessica Ketchum", ["Meat:Chicken", "Pasta"], ["Annie's Cheddar Mac & Cheese", "Tyson Buffalo Chicken Tenders"], ["Preheat oven to 400F"], ["Bake chicken tenders for 15-20 minutes", "Follow directions on Mac & Cheese box", "Slice chicken", "Stir chicken into mac & cheese"], "Best served warm!"),
-        new Recipe("Cheese Burgers", "Classic American", ["Meat:Beef", "Grill"], ["Burger buns", "Ground beef (patties)", "Condiments"], ["Light the grill OR Pre-heat stove"], ["Place patties on grill/stove", "Wait until browned", "Flip", "Wait until browned on both sides", "Place sliced cheese on patties", "Cook for no longer than 1 more minute"], "Easiest on grill")
-    ];
+    $scope._recipes = null;
 
     $scope.storeTheme = function (newTheme) {
         localStorage.setItem(STORED_THEME, newTheme);
+    }
+
+    $scope.getRecipes = function() {
+        if ($scope._recipes === null) {
+            $scope._recipes = retreiveRecipes();
+        }
+
+        return $scope._recipes;
     }
 
     $scope._cachedTags = null;
@@ -53,7 +67,7 @@ app.controller('recipeCtrl', function ($scope) {
                 Custom: []
             };
 
-            $scope.recipes.forEach(recipe => {
+            $scope._recipes.forEach(recipe => {
                 recipe.Tags.forEach(tag => {
                     let categorySplit = tag.indexOf(':');
                     if (categorySplit < 0) {

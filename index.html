@@ -11,7 +11,7 @@
 <body class="{{currentTheme}}">
     <div class="contentBox">
         <div class="controlsBox">
-            <a href="./new" class="button-like"><b>+ Add recipe</b></a>
+            <a href="./new/index.html" class="button-like"><b>+ Add recipe</b></a>
             <h2>Controls</h2>
             <button ng-click="showControls = !showControls">See <span ng-hide="showControls">more</span><span ng-show="showControls">less</span></button>
             <div ng-show="showControls">
@@ -48,9 +48,9 @@
                 </ul>
             </div>
         </div>
-        <div class="recipesBox">
-            <ul id="recipeList">
-                <li ng-repeat="recipe in recipes | recipeFilters:filters track by $index" id="recipe-{{ recipe.Name }}">
+        <div class="mainContentBox">
+            <ul id="recipeList" class="boxyList">
+                <li ng-repeat="recipe in getRecipes() | recipeFilters:filters track by $index" id="recipe-{{ recipe.Name }}">
                     <h2 class="recipeName" ng-click="recipe.Show = !recipe.Show">{{ recipe.Name }}</h2>
 
                     <div class="description">{{ recipe.Description }}</div>

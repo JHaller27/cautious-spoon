@@ -140,9 +140,10 @@ h3, h4, h5 {
     color: var(--color-text) !important;
 }
 
-.recipesBox {
+.mainContentBox {
     flex: 5 0 0;
     width: 100%;
+    padding: 5px;
 }
 
 select, select > * {
@@ -152,19 +153,20 @@ select, select > * {
     border-radius: 10px;
 }
 
-ul#recipeList, ul#recipeList ul {
+ul.boxyList, ul#recipeList ul {
     list-style-type: none;
 }
 
-ul#recipeList {
+ul.boxyList {
     padding: 0;
+    margin: 0;
 
     display: flex;
 
     justify-content: space-evenly;
 }
 
-ul#recipeList > li {
+ul.boxyList > li {
     margin: 10px;
     padding: 10px;
 
@@ -191,7 +193,7 @@ ul.tagsList > li {
 }
 
 @media only screen and (max-width: 1000px) {
-    ul#recipeList {
+    ul.boxyList {
         flex-flow: column nowrap;
     }
 

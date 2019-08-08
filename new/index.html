@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html ng-app="recipeApp" ng-controller="recipeCtrl">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="../includes/scripts.js"></script>
+    <script src="./scripts.js"></script>
+    <link type="text/css" rel="stylesheet" href="../includes/style.css" />
+    <link type="text/css" rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="{{currentTheme}}">
+    <div class="contentBox">
+        <div class="controlsBox">
+            <a href="../index.html" class="button-like"><b>Back to recipes</b></a>
+            <h2>Controls</h2>
+            <button ng-click="showControls = !showControls">See <span ng-hide="showControls">more</span><span ng-show="showControls">less</span></button>
+            <div ng-show="showControls">
+                <ul class="controlsList">
+                    <li class="themesBox">
+                        <label for="themeSelector">Theme</label>
+                        <select id="themeSelector" ng-model="currentTheme" ng-change="storeTheme(currentTheme)"
+                            ng-options="t for t in themes"></select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="newRecipeForm" class="mainContentBox">
+            <ul class="boxyList">
+                <li>
+                    <h2>Name</h2>
+                    <input id="recipeName" type="text" ng-model="newRecipe.Name" />
+                </li>
+                <li>
+                    <h2>Description</h2>
+                    <input id="recipeDescription" type="text" ng-model="newRecipe.Description" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
