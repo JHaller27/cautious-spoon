@@ -97,6 +97,18 @@ h3, h4, h5 {
     color: var(--color-text-emphasis);
 }
 
+.controlsBox button {
+    color: var(--color-text);
+    background-color: var(--color-background-emphasis);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.controlsBox button:hover, .controlsBox select:hover {
+    cursor: pointer;
+}
+
 .controlsList {
     list-style-type: none;
     padding: 0;

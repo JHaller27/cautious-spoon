@@ -11,7 +11,8 @@
 <body class="{{currentTheme}}">
     <div class="contentBox">
         <div class="controlsBox">
-            <h2 ng-click="showControls = !showControls">Controls</h2>
+            <h2>Controls</h2>
+            <button ng-click="showControls = !showControls">See <span ng-hide="showControls">more</span><span ng-show="showControls">less</span></button>
             <div ng-show="showControls">
                 <ul class="controlsList">
                     <li class="themesBox">
