@@ -105,8 +105,17 @@ h3, h4, h5 {
     border-radius: 5px;
 }
 
-.controlsBox button:hover, .controlsBox select:hover {
+.controlsBox button:hover, .controlsBox select:hover, .controlsBox a:hover {
     cursor: pointer;
+}
+
+.controlsBox a:hover {
+    text-decoration: underline;
+}
+
+.controlsBox button.invert {
+    background-color: var(--color-text);
+    color: var(--color-background-emphasis);
 }
 
 .controlsList {
