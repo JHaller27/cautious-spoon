@@ -15,7 +15,7 @@ class Recipe {
     }
 }
 
-function strContains(superstring, substring, caseSensitive=false) {
+function strContains(superstring, substring, caseSensitive = false) {
     if (substring === '') {
         return true;
     }
@@ -64,7 +64,7 @@ app.controller('recipeCtrl', function ($scope) {
                     }
                     else {
                         let category = tag.substr(0, tag.indexOf(':'));
-                        let tagName = tag.substr(tag.indexOf(':')+1);
+                        let tagName = tag.substr(tag.indexOf(':') + 1);
                         if ($scope._cachedTags[category] === undefined) {
                             $scope._cachedTags[category] = [tagName];
                             $scope._cachedTags.Categories.push(category);
@@ -110,8 +110,8 @@ function displayRecipe(recipe, filters) {
     return false;
 }
 
-app.filter('recipeFilters', function() {
-    return function(allRecipes, filters) {
+app.filter('recipeFilters', function () {
+    return function (allRecipes, filters) {
         if (filters === undefined) {
             return allRecipes;
         }

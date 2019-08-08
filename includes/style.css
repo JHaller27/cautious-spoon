@@ -103,19 +103,20 @@ h3, h4, h5 {
     border: none;
     padding: 5px;
     border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
 }
 
-.controlsBox button:hover, .controlsBox select:hover, .controlsBox a:hover {
+.controlsBox button:hover, .controlsBox select:hover {
     cursor: pointer;
 }
 
-.controlsBox a:hover {
-    text-decoration: underline;
-}
-
-.controlsBox button.invert {
+.controlsBox a.button-like {
     background-color: var(--color-text);
     color: var(--color-background-emphasis);
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration-line: unset;
 }
 
 .controlsList {
