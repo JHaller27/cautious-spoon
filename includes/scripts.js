@@ -67,7 +67,7 @@ app.controller('recipeCtrl', function ($scope) {
                 Custom: []
             };
 
-            $scope._recipes.forEach(recipe => {
+            $scope.getRecipes().forEach(recipe => {
                 recipe.Tags.forEach(tag => {
                     let categorySplit = tag.indexOf(':');
                     if (categorySplit < 0) {
