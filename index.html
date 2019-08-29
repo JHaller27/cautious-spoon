@@ -4,6 +4,7 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="includes/recipe.js"></script>
     <script src="includes/scripts.js"></script>
     <link type="text/css" rel="stylesheet" href="includes/style.css" />
 </head>
@@ -36,10 +37,9 @@
                                 <ul class="tagList" id="tagList-{{category}}">
                                     <li ng-repeat="tag in getTags()[category]" class="tagFilter"
                                         id="tag-{{category}}-{{tag}}">
-                                        <input type="checkbox" ng-model="filters.Tag"
+                                        <input type="checkbox" ng-model="filters.Tags[category][tag]"
                                             id="checkbox-{{category}}-{{tag}}" />
-                                        <label class="checkboxLabel" for="checkbox-{{category}}-{{tag}}"
-                                            ng-click="toggleTag(category, tag)">{{tag}}</label>
+                                        <label class="checkboxLabel" for="checkbox-{{category}}-{{tag}}">{{tag}}</label>
                                     </li>
                                 </ul>
                             </li>

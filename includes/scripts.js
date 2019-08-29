@@ -2,19 +2,6 @@ const STORED_THEME = 'recipesTheme';
 
 var app = angular.module('recipeApp', []);
 
-class Recipe {
-    constructor(name, description, tags, ingredients, prep, steps, notes) {
-        this.Name = name;
-        this.Description = description;
-        this.Tags = tags;
-        this.Ingredients = ingredients;
-        this.Prep = prep;
-        this.Steps = steps;
-        this.Notes = notes;
-        this.Show = false;
-    }
-}
-
 const STATIC_RECIPES = [
     new Recipe("Milk in a cup", "", ["Difficulty:Easy", "Meat:None"], ["Milk"], [], ["Pour milk into cup"], "Cold milk is best!"),
     new Recipe("Chicken Nuggets", "The cheap and dirty way", ["Meat:Chicken", "Difficulty:Easy"], ["Tyson's Fun Nuggets"], [], ["Place 5 chicken nuggets on a plate", "Cook for 1:30", "(Optional) serve with Kraft Chipotle Aioli sauce", "Enjoy!"], ""),
@@ -38,7 +25,7 @@ function strContains(superstring, substring, caseSensitive = false) {
     }
 }
 
-function retreiveRecipes () {
+function retreiveRecipes() {
     return STATIC_RECIPES;
 }
 
@@ -50,7 +37,7 @@ app.controller('recipeCtrl', function ($scope) {
         localStorage.setItem(STORED_THEME, newTheme);
     }
 
-    $scope.getRecipes = function() {
+    $scope.getRecipes = function () {
         if ($scope._recipes === null) {
             $scope._recipes = retreiveRecipes();
         }
@@ -89,6 +76,18 @@ app.controller('recipeCtrl', function ($scope) {
                     }
                 });
             });
+
+            // Add tags to filters
+            $scope.filters['Tags'] = {};
+            for (const category in $scope._cachedTags) {
+                if (category !== 'Categories') {
+                    $scope.filters.Tags[category] = {};
+
+                    $scope._cachedTags[category].forEach(tag => {
+                        $scope.filters.Tags[category][tag] = false;
+                    });
+                }
+            }
         }
 
         return $scope._cachedTags;
@@ -107,6 +106,10 @@ app.controller('recipeCtrl', function ($scope) {
 
         // other default values
         $scope.showControls = false;
+
+        $scope.filters = {
+            Name: ''
+        };
     }
 
     init();
@@ -117,11 +120,36 @@ app.controller('recipeCtrl', function ($scope) {
 // :param filters: An object whose elements are filter data
 // :return: true if this Recipe should be displayed, false otherwise
 function displayRecipe(recipe, filters) {
-    if (strContains(recipe.Name, filters.Name)) {
-        return true;
+    if (!strContains(recipe.Name, filters.Name)) {
+        return false;
     }
 
-    return false;
+    for (const categoryName in filters.Tags) {
+        const category = filters.Tags[categoryName];
+
+        let categoryIsActive = false;
+        let recipeHasCheckedTag = false;
+        for (const tagName in category) {
+            const tagSet = category[tagName];
+            const fullTagName = (categoryName === 'Custom') ? tagName : `${categoryName}:${tagName}`;
+
+            if (tagSet) {
+                if (!categoryIsActive) {
+                    categoryIsActive = true;
+                }
+
+                if (!recipeHasCheckedTag && recipe.Tags.includes(fullTagName)) {
+                    recipeHasCheckedTag = true;
+                }
+            }
+        }
+
+        if (categoryIsActive && !recipeHasCheckedTag) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 app.filter('recipeFilters', function () {
